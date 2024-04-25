@@ -1,1 +1,1 @@
-# A starter template for Zig
+# A minimal HTTP server framework

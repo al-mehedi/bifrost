@@ -12,6 +12,17 @@ pub fn build(b: *std.Build) void {
         .optimize = optimize,
     });
 
+    // External Library Packages
+
+    // ZAP - Blazingly fast backends in zig
+    // const zap = b.dependency("zap", .{
+    //     .target = target,
+    //     .optimize = optimize,
+    // });
+    // exe.root_module.addImport("zap", zap.module("zap"));
+    // exe.linkLibrary(zap.artifact("facil.io"));
+
+
     b.installArtifact(exe);
 
     const run_cmd = b.addRunArtifact(exe);

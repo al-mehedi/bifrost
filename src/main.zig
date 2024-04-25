@@ -1,15 +1,20 @@
 const std = @import("std");
+const debug = std.debug;
+const Tag = std.Target.Os.Tag;
 
-pub fn main() void {
-    const sum = add(50, 1);
-    std.debug.print("👽 - Area {}!\n", .{sum});
+const stdx = @import("stdx.zig");
+
+const async_io = @import("async_io.zig");
+const Aio = async_io.Io;
+
+
+
+
+
+pub fn main() !void {
+    stdx.targetPlatform(Tag.linux);
+
+    const x = try Aio.init(8, 0);
+    _ = x;
 }
 
-fn add(x: i32, y: i32) i32 {
-    return x + y;
-}
-
-test "Awe-sum" {
-    const sum = add(11, 8);
-    try std.testing.expect(sum == 19);
-}
